@@ -1,25 +1,12 @@
 
 cmake_minimum_required(VERSION 2.8.11)
+project(ALIGNER)
 
-project(
-  ALIGNER
-  )
+include_directories(.)
 
-include_directories(
-  .
-  )
+add_library(tracepoint-provider SHARED tracepoint-provider.cpp)
 
-add_library(
-  tracepoint-provider
-  SHARED
-  tracepoints.cpp
-  )
-
-target_link_libraries(
-  tracepoint-provider
-  dl
-  lttng-ust
-  )
+target_link_libraries(tracepoint-provider dl lttng-ust)
 
 add_library(
   aligner-lib

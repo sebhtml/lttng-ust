@@ -1,6 +1,6 @@
 
-#ifndef FOO_H
-#define FOO_H
+#ifndef ALIGNER_LIB_H
+#define ALIGNER_LIB_H
 
 void align();
 

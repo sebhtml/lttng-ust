@@ -1,7 +1,7 @@
 
 #define TRACEPOINT_DEFINE
 
-#include "tracepoints.h"
+#include "tracepoint-provider.h"
 
 void
 align()
