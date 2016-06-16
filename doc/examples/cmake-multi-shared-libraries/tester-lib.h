@@ -1,6 +1,6 @@
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef TEST_LIB_H
+#define TEST_LIB_H
 
 void test();
 
