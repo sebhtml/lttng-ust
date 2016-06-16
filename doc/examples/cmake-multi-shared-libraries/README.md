@@ -11,7 +11,7 @@ cmake ../cmake-multi-shared-libraries
 make
 ```
 
-You should have 3 shared libraries
+3 shared libraries will be generated
 
 ```
 libaligner-lib.so
@@ -19,18 +19,20 @@ libtester-lib.so
 libtracepoint-provider.so
 ```
 
-and you should have 2 executables
+
+and 2 executables will be generated
 
 ```
 aligner
 tester
 ```
 
-.
 
 
 Trace the application tester
 ============================
+
+The script trace.sh can be used.
 
 ```bash
 lttng create
