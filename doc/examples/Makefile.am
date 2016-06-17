@@ -7,6 +7,7 @@ doc_examples_demo_tracefdir = ${docdir}/examples/demo-tracef
 doc_examples_demo_tracelogdir = ${docdir}/examples/demo-tracelog
 doc_examples_clock_overridedir = ${docdir}/examples/clock-override
 doc_examples_getcpu_overridedir = ${docdir}/examples/getcpu-override
+doc_examples_cmakedir = ${docdir}/examples/cmake-multiple-shared-libraries
 
 if BUILD_JAVA_AGENT_WITH_JUL
 doc_examples_java_juldir = ${docdir}/examples/java-jul
@@ -37,6 +38,20 @@ dist_doc_examples_DATA = README
 dist_doc_examples_easy_ust_DATA = easy-ust/Makefile \
 	easy-ust/sample.c \
 	easy-ust/sample_component_provider.h easy-ust/tp.c
+
+dist_doc_examples_cmake_DATA = \
+  cmake-multiple-shared-libraries/CMakeLists.txt \
+  cmake-multiple-shared-libraries/aligner.cpp \
+  cmake-multiple-shared-libraries/aligner-lib.cpp \
+  cmake-multiple-shared-libraries/aligner-lib.h \
+  cmake-multiple-shared-libraries/CMakeLists.txt \
+  cmake-multiple-shared-libraries/README.md \
+  cmake-multiple-shared-libraries/tester.cpp \
+  cmake-multiple-shared-libraries/tester-lib.cpp \
+  cmake-multiple-shared-libraries/tester-lib.h \
+  cmake-multiple-shared-libraries/tracepoint-provider.cpp \
+  cmake-multiple-shared-libraries/tracepoint-provider.h \
+  cmake-multiple-shared-libraries/trace.sh
 
 dist_doc_examples_gen_tp_DATA = gen-tp/Makefile \
 	gen-tp/sample.c  gen-tp/sample_tracepoint.tp
