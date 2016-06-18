@@ -5,9 +5,9 @@ Build the libraries and applications
 =====
 
 ```bash
-mkdir ../cmake-multiple-shared-libraries.build
-cd ../cmake-multiple-shared-libraries.build
-cmake ../cmake-multiple-shared-libraries
+mkdir build
+cd build
+cmake ..
 make
 ```
 
