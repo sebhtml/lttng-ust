@@ -44,7 +44,6 @@ dist_doc_examples_cmake_DATA = \
   cmake-multiple-shared-libraries/aligner.cpp \
   cmake-multiple-shared-libraries/aligner-lib.cpp \
   cmake-multiple-shared-libraries/aligner-lib.h \
-  cmake-multiple-shared-libraries/CMakeLists.txt \
   cmake-multiple-shared-libraries/README.md \
   cmake-multiple-shared-libraries/tester.cpp \
   cmake-multiple-shared-libraries/tester-lib.cpp \
