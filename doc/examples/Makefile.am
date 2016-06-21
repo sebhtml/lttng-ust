@@ -111,7 +111,7 @@ endif
 
 all-local:
 	@if [ x"$(srcdir)" != x"$(builddir)" ]; then \
-		for subdir in $(SUBDIRS_PROXY) $(SUBDIRS_JUL) $(SUBDIRS_LOG4J); do \
+		for subdir in $(SUBDIRS_PROXY) $(SUBDIRS_JUL) $(SUBDIRS_LOG4J) $(SUBDIRS_CMAKE); do \
 			cp -pfR $(srcdir)/$$subdir $(builddir); \
 			chmod -R u+w $(builddir)/$$subdir; \
 		done; \
@@ -143,6 +143,12 @@ all-local:
 			(cd $(SUBDIRS_LOG4J) && $(MAKE) JAVA_CLASSPATH_OVERRIDE_LOG4J="../../../liblttng-ust-java-agent/java/lttng-ust-agent-log4j" JAVA_CLASSPATH_OVERRIDE_COMMON="../../../liblttng-ust-java-agent/java/lttng-ust-agent-common" $(AM_MAKEFLAGS) all && cd ..) || exit 1; \
 		done; \
 	fi;
+	if [ x"$(SUBDIRS_CMAKE)" != x"" ]; then \
+		for subdir in $(SUBDIRS_CMAKE); do \
+			(cd $(SUBDIRS_CMAKE) && mkdir -p build && cd build && cmake .. && $(MAKE) && cd ..) || exit 1; \
+		done; \
+	fi;
+
 
 clean-local:
 	@for subdir in $(SUBDIRS_PROXY); do \
@@ -164,8 +170,15 @@ clean-local:
 			fi; \
 		done; \
 	fi; \
+	if [ x"$(SUBDIRS_CMAKE)" != x"" ]; then \
+		for subdir in $(SUBDIRS_CMAKE); do \
+			if [ -d $$subdir ]; then \
+				(cd $$subdir && rm -rf build && cd ..) || exit 1; \
+			fi; \
+		done; \
+	fi; \
 	if [ x"$(srcdir)" != x"$(builddir)" ]; then \
-		for subdir in $(SUBDIRS_PROXY) $(SUBDIRS_JUL) $(SUBDIRS_LOG4J); do \
+		for subdir in $(SUBDIRS_PROXY) $(SUBDIRS_JUL) $(SUBDIRS_LOG4J) $(SUBDIRS_CMAKE); do \
 			rm -rf $(builddir)/$$subdir; \
 		done; \
 	fi;
